@@ -1,4 +1,4 @@
-
+import { PageHeader } from "./layouts/PageHeader"
 
 
 function App() {
@@ -6,10 +6,10 @@ function App() {
 
   return (
     <>
-      <div>
-        Youtube
-      </div>
+      <div className="max-h-screen flex flex-col">
+        <PageHeader /> 
         
+      </div>
     </>
   )
 }
