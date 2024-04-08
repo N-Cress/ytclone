@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./Button";
@@ -15,15 +15,33 @@ const   TRANSLATE_VALUE = 200;
 
 export function CatPills({ categories, selectedCat, onSelect } : CatPillProps) {
     const [isLeftVisible, setIsLeftVisible] = useState(true)
-    const [isRightVisible, setIsRightVisible] = useState(false)
+    const [isRightVisible, setIsRightVisible] = useState(true)
     const [translate, setTranslate] = useState(0)
     const containerRef = useRef<HTMLDivElement>(null)   
+
+    useEffect(()  => {
+        if (containerRef.current == null) return
+
+        const observer = new ResizeObserver(entries => {
+            const container = entries[0]?.target
+            if (container == null) return
+
+            setIsLeftVisible(translate > 0) 
+            setIsRightVisible(translate + container.clientWidth < container.scrollWidth)
+        })
+
+        observer.observe(containerRef.current)
+        
+        return() => {
+            observer.disconnect()
+        }
+    }, [categories, translate])
 
     return (
         
 
-    <div className="overflow-x-hidden relative">
-        <div ref={containerRef}
+    <div ref={containerRef} className="overflow-x-hidden relative">
+        <div 
         style={{ transform: `translateX(-${translate}px)`}}className="flex whitespace-nowrap gap-3 tranistion-transform w-[max-content]">
             {categories.map(category => (
                 <Button key={category} 
@@ -54,7 +72,22 @@ export function CatPills({ categories, selectedCat, onSelect } : CatPillProps) {
         }
          { isRightVisible && (
              <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-gradient-to-l from-white from-50% to-transparent w-24 h-full flex justify-end">
-             <Button variant="ghost" size="icon" className="h-full aspect-square w-auto p-1.5">
+             <Button 
+             onClick={() => {
+                setTranslate(translate => {
+                    if (containerRef.current == null) {
+                        return translate
+                    }
+                    const newTranslate = translate + TRANSLATE_VALUE
+                    const edge = containerRef.current.scrollWidth
+                    const width = containerRef.current.clientWidth
+                    if (newTranslate + width >= edge) { 
+                        return edge - width
+                    }
+                    return newTranslate
+                })
+            }}
+             variant="ghost" size="icon" className="h-full aspect-square w-auto p-1.5">
                  <ChevronRight/>
              </Button>
          </div>

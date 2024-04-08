@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { PageHeader } from "./layouts/PageHeader";
 import { CatPills } from "./components/CatPills";
+import { VideoGridItem } from "./components/VideoGridItem";
 
 import { categories } from "./data/home";
 
@@ -20,8 +21,10 @@ function App() {
               selectedCat={selectedCat} 
               onSelect={setSelectedCat}/> 
             </div>
+            <div className="grid gap-4 grid-cols-[repeat(auto-fill, minmax(300px,1fr))]">
+              <VideoGridItem />
+            </div>
           </div>
-          
         </div>
       </div>
     </>
