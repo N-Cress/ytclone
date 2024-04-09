@@ -7,17 +7,9 @@ import { useSidebarContext } from "../contexts/SidebarContext";
 
 export function PageHeader() {
     const [showSearch, setShowSearch] = useState(false);
-    const { toggle } = useSidebarContext()
 
     return <div className="flex gap-10 lg:gap-20 justify-between pt-2 mb-6 mx-4">
-       <div className={`gap-4 items-center flex-shrink-0 ${showSearch ? "hidden" : "flex"}`}>
-        <Button onClick={toggle} variant="ghost" size="icon" > 
-        <Menu />
-        </Button>
-        <a href="">
-          <img src={logo} alt="" className="h-6"/>
-        </a>
-        </div>
+        <PageHeaderFirstSection hidden={showSearch} />
         <form className={`md:flex  gap-4 flex-grow justify-center ${showSearch ? "flex" : "hidden md:flex"}`}>
             <Button onClick={() => setShowSearch(false)} className={`hover:bg-gray-300 flex-shrink-0 ${showSearch ? "flex" : "hidden"}`} size="icon" variant="ghost">
                 <ArrowLeft /> 
@@ -51,5 +43,22 @@ export function PageHeader() {
             </Button>
         </div>
         
+    </div>
+}
+
+type PageHeaderFirstSectionProps = {
+    hidden?: boolean
+}
+
+export function PageHeaderFirstSection({ hidden = false } : PageHeaderFirstSectionProps) {
+    const { toggle } = useSidebarContext()
+
+    return <div className={`gap-4 items-center flex-shrink-0 ${hidden ? "hidden" : "flex"}`}>
+    <Button onClick={toggle} variant="ghost" size="icon" > 
+    <Menu />
+    </Button>
+    <a href="">
+      <img src={logo} alt="" className="h-6"/>
+    </a>
     </div>
 }
