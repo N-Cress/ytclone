@@ -18,38 +18,6 @@ export const categories = [
 
 export const videos = [
     {
-      id: "1",
-      title: "CSS Anchor Is The Best New CSS Feature Since Flexbox",
-      channel: {
-        name: "Web Dev Simplified",
-        id: "WebDevSimplified",
-        profileUrl:
-          "https://yt3.ggpht.com/ytc/APkrFKZWeMCsx4Q9e_Hm6nhOOUQ3fv96QGUXiMr1-pPP=s48-c-k-c0x00ffffff-no-rj",
-      },
-      views: 222536,
-      postedAt: new Date("2023-08-29"),
-      duration: 938,
-      thumbnailUrl: "https://i.ytimg.com/vi/B4Y9Ed4lLAI/maxresdefault.jpg",
-      videoUrl:
-        "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-    },
-    {
-      id: "2",
-      title: "NEW Way To Create Variables In JavaScript",
-      channel: {
-        name: "Web Dev Simplified",
-        id: "WebDevSimplified",
-        profileUrl:
-          "https://yt3.ggpht.com/ytc/APkrFKZWeMCsx4Q9e_Hm6nhOOUQ3fv96QGUXiMr1-pPP=s48-c-k-c0x00ffffff-no-rj",
-      },
-      views: 257136,
-      postedAt: new Date("2023-08-22"),
-      duration: 732,
-      thumbnailUrl: "https://i.ytimg.com/vi/d6a8RymS1zI/maxresdefault.jpg",
-      videoUrl:
-        "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-    },
-    {
       id: "3",
       title: "Front-end developer takes on a CSS battle",
       channel: {
@@ -145,4 +113,36 @@ export const videos = [
       videoUrl:
         "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
     },
+    {
+        id: "1",
+        title: "CSS Anchor Is The Best New CSS Feature Since Flexbox",
+        channel: {
+          name: "Web Dev Simplified",
+          id: "WebDevSimplified",
+          profileUrl:
+            "https://yt3.ggpht.com/ytc/APkrFKZWeMCsx4Q9e_Hm6nhOOUQ3fv96QGUXiMr1-pPP=s48-c-k-c0x00ffffff-no-rj",
+        },
+        views: 222536,
+        postedAt: new Date("2023-08-29"),
+        duration: 938,
+        thumbnailUrl: "https://i.ytimg.com/vi/B4Y9Ed4lLAI/maxresdefault.jpg",
+        videoUrl:
+          "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      },
+      {
+        id: "2",
+        title: "NEW Way To Create Variables In JavaScript",
+        channel: {
+          name: "Web Dev Simplified",
+          id: "WebDevSimplified",
+          profileUrl:
+            "https://yt3.ggpht.com/ytc/APkrFKZWeMCsx4Q9e_Hm6nhOOUQ3fv96QGUXiMr1-pPP=s48-c-k-c0x00ffffff-no-rj",
+        },
+        views: 257136,
+        postedAt: new Date("2023-08-22"),
+        duration: 732,
+        thumbnailUrl: "https://i.ytimg.com/vi/d6a8RymS1zI/maxresdefault.jpg",
+        videoUrl:
+          "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      },
   ]
