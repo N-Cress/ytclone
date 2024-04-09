@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { PageHeader } from "./layouts/PageHeader";
 import { Sidebar } from "./layouts/Sidebar";
@@ -7,15 +7,18 @@ import { VideoGridItem } from "./components/VideoGridItem";
 
 
 import { categories, videos } from "./data/home";
-import { SidebarProvider } from "./contexts/SidebarContext";
+import { SidebarProvider, useSidebarContext } from "./contexts/SidebarContext";
 
 
 function App() {
   const [selectedCat, setSelectedCat] = useState(categories[0])
 
+
+
+
   return (
     <SidebarProvider>
-      <div className="max-h-screen flex flex-col">
+      <div className="max-h-screen flex flex-col pr-4">
         <PageHeader /> 
         <div className="grid grid-cols-[auto,1fr] flex-grow-1 overflow-auto" >
           <Sidebar />
@@ -25,7 +28,7 @@ function App() {
               selectedCat={selectedCat} 
               onSelect={setSelectedCat}/> 
             </div>
-            <div className="grid gap-4 grid-cols-2">
+            <div className={`grid gap-4 sm:grid-cols-1 md:grid-cols-2`}>
               {videos.map(video => (
                 <VideoGridItem key={video.id} {...video} />
               ))}

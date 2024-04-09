@@ -34,7 +34,7 @@ export function SidebarProvider ({ children} : SidebarProviderProps) {
     }
     }, [])
 
-    function isScreenSmall() {
+     function isScreenSmall() {
         return window.innerWidth < 1024
     }
 
