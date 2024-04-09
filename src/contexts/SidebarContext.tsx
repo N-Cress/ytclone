@@ -16,6 +16,8 @@ const SidebarContext = createContext<SidebarContextProps | null>(null)
 export function useSidebarContext() {
     const value = useContext(SidebarContext)
     if (value == null) throw Error ("Cannot use outside of Sidebar Provider")
+
+    return value
 }
 
 export function SidebarProvider ({ children} : SidebarProviderProps) {
